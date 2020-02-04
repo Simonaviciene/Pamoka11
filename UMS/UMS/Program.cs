@@ -31,7 +31,8 @@ namespace UMS
             {
 
 
-                Console.WriteLine("Pasirinkite veiksma: 1 - vartotojo parodymas, 0 - iseiti");
+                Console.WriteLine("Pasirinkite veiksma: 1 - vartotojo parodymas, 2 - prideti nauja vartotoja, 3 - istrinti, 0 - iseiti");
+
                 int veiksmas = Convert.ToInt32(Console.ReadLine());
                 if (veiksmas == 0)
                 {
@@ -53,6 +54,25 @@ namespace UMS
                     {
                         Console.WriteLine("Vartotojas su tokiu ID {0} neegzistuoja.", userId);
                     }
+
+                }
+                else if (veiksmas == 2)
+                {
+                    Console.WriteLine("Jus norite prideti nauja vartotoja");
+                    Console.WriteLine("Iveskite vartotojo ID:");
+                    int id = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Iveskite vartotojo Varda:");
+                    string vardas = Console.ReadLine();
+                    Console.WriteLine("Iveskite teises Id:");
+                    int teisesId = Convert.ToInt32(Console.ReadLine());
+
+                    userRepository.AddUser(id, vardas, teisesId);
+
+                    Console.WriteLine("Vartotojas sekmingai ivestas :)");
+                }
+                else if(veiksmas == 3)
+                {
+                    Console.WriteLine("Jus norite istrinti vartotoja");
                 }
                 else
                 {
